@@ -1,0 +1,14 @@
+"""
+Binary assets without revision history (stored base64-encoded).
+"""
+
+type asset_blob @table @sealed @export {
+	"""Binary assets without revision history (stored base64-encoded)."""
+	id: ID @primaryKey
+	filename: String! @indexed
+	mimeType: String
+	sizeBytes: Int
+	dataBase64: String!
+	etag: String @computed(from: "dataBase64")
+	createdAt: Date @createdTime
+}

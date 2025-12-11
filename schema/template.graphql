@@ -1,0 +1,13 @@
+"""
+Reusable snippets or wrappers for rendering content.
+"""
+
+type template @table @sealed @export {
+	"""Reusable snippets or wrappers for rendering content."""
+	id: ID @primaryKey
+	name: String! @indexed
+	description: String
+	content: String!
+	createdAt: Date @createdTime
+	updatedAt: Date @updatedTime
+}

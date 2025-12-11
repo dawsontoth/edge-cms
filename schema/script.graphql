@@ -1,0 +1,15 @@
+"""
+Logical scripts representing HTML/JS/CSS with revision tracking.
+"""
+
+type script @table @sealed @export {
+	"""Logical script entity (HTML/JS/CSS)."""
+	id: ID @primaryKey
+	name: String! @indexed
+	description: String
+	currentRevisionId: ID @indexed
+	publishedRevisionId: ID
+	etag: String @computed(from: "currentRevisionId")
+	createdAt: Date @createdTime
+	updatedAt: Date @updatedTime
+}

@@ -1,0 +1,15 @@
+"""
+Centralized key/value pairs consumable by scripts and templates.
+"""
+
+type variable @table @sealed @export {
+	"""Centralized key/value pairs consumable by scripts and templates."""
+	id: ID @primaryKey
+	scope: String @indexed
+	key: String! @indexed
+	value: String!
+	type: String
+	description: String
+	createdAt: Date @createdTime
+	updatedAt: Date @updatedTime
+}

@@ -1,0 +1,14 @@
+"""
+Immutable text snapshots for a script; supports drafts and reverts.
+"""
+
+type script_revision @table @sealed @export {
+	"""Immutable text snapshots for a script; supports drafts and reverts."""
+	id: ID @primaryKey
+	scriptId: ID! @indexed
+	version: Int! @indexed(type: "ordered")
+	label: String
+	content: String!
+	isDraft: Boolean
+	createdAt: Date @createdTime
+}

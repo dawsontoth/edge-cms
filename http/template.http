@@ -1,0 +1,41 @@
+### Describe templates
+# @no-log
+GET {{base}}/template
+Authorization: Basic {{username}} {{password}}
+
+### List templates
+# @no-log
+GET {{base}}/template/
+Authorization: Basic {{username}} {{password}}
+
+### Get template by id
+# @no-log
+GET {{base}}/template/{{templateId}}
+Authorization: Basic {{username}} {{password}}
+
+### Create template
+# @no-log
+POST {{base}}/template/
+Authorization: Basic {{username}} {{password}}
+Content-Type: application/json
+
+{
+  "name": "Base Layout",
+  "description": "Reusable layout wrapper",
+  "content": "<html><body>{{ content }}</body></html>"
+}
+
+### Update template
+# @no-log
+PATCH {{base}}/template/{{templateId}}
+Authorization: Basic {{username}} {{password}}
+Content-Type: application/json
+
+{
+  "description": "Updated layout description"
+}
+
+### Delete template
+# @no-log
+DELETE {{base}}/template/{{templateId}}
+Authorization: Basic {{username}} {{password}}

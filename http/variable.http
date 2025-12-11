@@ -1,0 +1,44 @@
+### Describe variables
+# @no-log
+GET {{base}}/variable
+Authorization: Basic {{username}} {{password}}
+
+### List variables
+# @no-log
+GET {{base}}/variable/
+Authorization: Basic {{username}} {{password}}
+
+### Get variable by id
+# @no-log
+GET {{base}}/variable/{{variableId}}
+Authorization: Basic {{username}} {{password}}
+
+### Create variable
+# @no-log
+POST {{base}}/variable/
+Authorization: Basic {{username}} {{password}}
+Content-Type: application/json
+
+{
+  "scope": "global",
+  "key": "primaryColor",
+  "value": "#3366ff",
+  "type": "string",
+  "description": "Brand primary color"
+}
+
+### Update variable
+# @no-log
+PATCH {{base}}/variable/{{variableId}}
+Authorization: Basic {{username}} {{password}}
+Content-Type: application/json
+
+{
+  "value": "#2255dd",
+  "description": "Updated brand color"
+}
+
+### Delete variable
+# @no-log
+DELETE {{base}}/variable/{{variableId}}
+Authorization: Basic {{username}} {{password}}

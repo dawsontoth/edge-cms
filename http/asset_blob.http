@@ -1,0 +1,43 @@
+### Describe asset blobs
+# @no-log
+GET {{base}}/asset_blob
+Authorization: Basic {{username}} {{password}}
+
+### List asset blobs
+# @no-log
+GET {{base}}/asset_blob/
+Authorization: Basic {{username}} {{password}}
+
+### Get asset blob by id
+# @no-log
+GET {{base}}/asset_blob/{{assetId}}
+Authorization: Basic {{username}} {{password}}
+
+### Create asset blob
+# @no-log
+POST {{base}}/asset_blob/
+Authorization: Basic {{username}} {{password}}
+Content-Type: application/json
+
+{
+  "filename": "logo.png",
+  "mimeType": "image/png",
+  "sizeBytes": 1024,
+  "dataBase64": "{{base64Data}}"
+}
+
+### Update asset blob metadata
+# @no-log
+PATCH {{base}}/asset_blob/{{assetId}}
+Authorization: Basic {{username}} {{password}}
+Content-Type: application/json
+
+{
+  "mimeType": "image/webp",
+  "sizeBytes": 980
+}
+
+### Delete asset blob
+# @no-log
+DELETE {{base}}/asset_blob/{{assetId}}
+Authorization: Basic {{username}} {{password}}

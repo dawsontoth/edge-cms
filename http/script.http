@@ -1,0 +1,42 @@
+### Describe scripts
+# @no-log
+GET {{base}}/script
+Authorization: Basic {{username}} {{password}}
+
+### List scripts
+# @no-log
+GET {{base}}/script/
+Authorization: Basic {{username}} {{password}}
+
+### Get script by id
+# @no-log
+GET {{base}}/script/{{scriptId}}
+Authorization: Basic {{username}} {{password}}
+
+### Create script
+# @no-log
+POST {{base}}/script/
+Authorization: Basic {{username}} {{password}}
+Content-Type: application/json
+
+{
+  "name": "Homepage",
+  "description": "Landing page script",
+  "currentRevisionId": null,
+  "publishedRevisionId": null
+}
+
+### Update script
+# @no-log
+PATCH {{base}}/script/{{scriptId}}
+Authorization: Basic {{username}} {{password}}
+Content-Type: application/json
+
+{
+  "description": "Updated description"
+}
+
+### Delete script
+# @no-log
+DELETE {{base}}/script/{{scriptId}}
+Authorization: Basic {{username}} {{password}}

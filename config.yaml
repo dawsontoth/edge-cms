@@ -7,4 +7,4 @@ jsResource:
 http:
   cors: true
   corsAccessList:
-    - *
+    - '*'

@@ -1,0 +1,44 @@
+### Describe script revisions
+# @no-log
+GET {{base}}/script_revision
+Authorization: Basic {{username}} {{password}}
+
+### List script revisions
+# @no-log
+GET {{base}}/script_revision/
+Authorization: Basic {{username}} {{password}}
+
+### Get script revision by id
+# @no-log
+GET {{base}}/script_revision/{{revisionId}}
+Authorization: Basic {{username}} {{password}}
+
+### Create script revision
+# @no-log
+POST {{base}}/script_revision/
+Authorization: Basic {{username}} {{password}}
+Content-Type: application/json
+
+{
+  "scriptId": "{{scriptId}}",
+  "version": 1,
+  "label": "Initial draft",
+  "content": "<html><body>Hello</body></html>",
+  "isDraft": true
+}
+
+### Update script revision
+# @no-log
+PATCH {{base}}/script_revision/{{revisionId}}
+Authorization: Basic {{username}} {{password}}
+Content-Type: application/json
+
+{
+  "label": "Updated draft label",
+  "isDraft": false
+}
+
+### Delete script revision
+# @no-log
+DELETE {{base}}/script_revision/{{revisionId}}
+Authorization: Basic {{username}} {{password}}

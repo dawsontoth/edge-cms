@@ -1,0 +1,10 @@
+# yaml-language-server: $schema=./node_modules/harperdb/config-app.schema.json
+rest: true
+graphqlSchema:
+  files: 'schema/*.graphql'
+jsResource:
+  files: 'resources/*.ts'
+http:
+  cors: true
+  corsAccessList:
+    - *

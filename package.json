@@ -1,0 +1,14 @@
+{
+  "name": "edge-cms",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "run": "dotenv -- harperdb run .",
+    "dev": "dotenv -- harperdb dev ."
+  },
+  "dependencies": {
+    "dotenv": "^17.2.3",
+    "dotenv-cli": "^11.0.0",
+    "harperdb": "^4.7.12"
+  }
+}

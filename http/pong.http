@@ -1,0 +1,41 @@
+### Create
+# @no-log
+POST {{base}}/pong/
+Authorization: Basic {{username}} {{password}}
+
+### Create with id
+# @no-log
+POST {{base}}/pong/bong
+Authorization: Basic {{username}} {{password}}
+
+### Get list
+# @no-log
+GET {{base}}/pong/
+Authorization: Basic {{username}} {{password}}
+
+### Get list
+# @no-log
+GET {{base}}/.well-known/
+Authorization: Basic {{username}} {{password}}
+
+### Get one
+# @no-log
+GET {{base}}/pong/bong
+
+### Update
+# @no-log
+PUT {{base}}/pong/bong
+Authorization: Basic {{username}} {{password}}
+
+### Patch
+# @no-log
+PATCH {{base}}/pong/bong
+Authorization: Basic {{username}} {{password}}
+
+### Delete all
+# @no-log
+DELETE {{base}}/pong
+
+### Delete one
+# @no-log
+DELETE {{base}}/pong/bong

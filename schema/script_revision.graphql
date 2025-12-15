@@ -6,7 +6,7 @@ type script_revision @table @sealed @export {
 	"""Immutable text snapshots for a script; supports drafts and reverts."""
 	id: ID @primaryKey
 	scriptId: ID! @indexed
-	version: Int! @indexed(type: "ordered")
+	version: Int! @indexed
 	label: String
 	content: String!
 	isDraft: Boolean

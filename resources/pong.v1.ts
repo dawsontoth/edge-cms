@@ -1,4 +1,4 @@
-import {Context, RecordObject, RequestTarget, RequestTargetOrId, Resource, User} from 'harperdb/v2';
+import {Context, RecordObject, RequestTarget, RequestTargetOrId, Resource, User} from 'harperdb';
 
 interface Pong {
 	side: 'left'|'right';
@@ -9,9 +9,8 @@ interface Pong {
 let side: 'left'|'right' = 'left';
 let iteration: number = 0;
 
-export class pong extends Resource<Pong> {
-	// Notice we don't need this since we are importing from harperdb/v2
-	// static loadAsInstance = false;
+export class pong_v1 extends Resource<Pong> {
+	static loadAsInstance = true;
 
 	private ping(target: RequestTargetOrId) {
 		this.logId(target);
@@ -35,28 +34,26 @@ export class pong extends Resource<Pong> {
 	 C
 	 */
 	async allowCreate(user: User, record: Promise<Pong&RecordObject>, context: Context): Promise<boolean> {
-		console.log('allowCreate called', await record);
+		console.log('v1 allowCreate called', await record);
 		return super.allowCreate(user, record, context);
 	}
 
 	async post(target: RequestTargetOrId, newRecord: Partial<Pong&RecordObject>): Promise<(Pong&Partial<RecordObject>)> {
-		console.log('post called');
+		console.log('v1 post called');
 		return this.ping(target);
 	}
-
-
 
 	/*
 	 R
 	 */
 	allowRead(user: User, target: RequestTarget, context: Context): boolean|Promise<boolean> {
-		console.log('allowRead called');
+		console.log('v1 allowRead called');
 		this.logId(target);
 		return super.allowRead(user, target, context);
 	}
 
 	get(target?: RequestTargetOrId) {
-		console.log('get called');
+		console.log('v1 get called');
 		return this.ping(target);
 	}
 
@@ -64,17 +61,17 @@ export class pong extends Resource<Pong> {
 	 U
 	 */
 	async allowUpdate(user: User, record: Promise<Pong&RecordObject>, context: Context): Promise<boolean> {
-		console.log('allowUpdate called', await record);
+		console.log('v1 allowUpdate called', await record);
 		return super.allowUpdate(user, record, context);
 	}
 
-	put(target: RequestTargetOrId, record: Pong&RecordObject) {
-		console.log('put called', target, record);
+	put(record: Pong&RecordObject, target: RequestTargetOrId) {
+		console.log('v1 put called', target, record);
 		return this.ping(target);
 	}
 
-	patch(target: RequestTargetOrId, record: Partial<Pong&RecordObject>) {
-		console.log('patch called', target, record);
+	patch(record: Partial<Pong&RecordObject>, target: RequestTargetOrId) {
+		console.log('v1 patch called', target, record);
 		return this.ping(target);
 	}
 
@@ -82,13 +79,13 @@ export class pong extends Resource<Pong> {
 	 D
 	 */
 	allowDelete(user: User, target: RequestTarget, context: Context): boolean|Promise<boolean> {
-		console.log('allowDelete called');
+		console.log('v1 allowDelete called');
 		this.logId(target);
 		return super.allowDelete(user, target, context);
 	}
 
 	delete(target: RequestTargetOrId): boolean {
-		console.log('delete called');
+		console.log('v1 delete called');
 		this.logId(target);
 		iteration = 0;
 		side = 'left';

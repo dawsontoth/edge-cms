@@ -1,0 +1,54 @@
+### Post
+# @no-log
+POST {{base}}/pong_v1/
+Authorization: Basic {{username}} {{password}}
+
+### Post with id
+# @no-log
+POST {{base}}/pong_v1/bong
+Authorization: Basic {{username}} {{password}}
+Content-Type: application/json
+
+{
+  "id": "body id",
+  "value": "content"
+}
+
+### Get list
+# @no-log
+GET {{base}}/pong_v1/
+Authorization: Basic {{username}} {{password}}
+
+### Get one
+# @no-log
+GET {{base}}/pong_v1/bong
+
+### Put
+# @no-log
+PUT {{base}}/pong_v1/bong
+Authorization: Basic {{username}} {{password}}
+Content-Type: application/json
+
+{
+  "id": "body id",
+  "value": "content"
+}
+
+### Patch
+# @no-log
+PATCH {{base}}/pong_v1/bong
+Authorization: Basic {{username}} {{password}}
+Content-Type: application/json
+
+{
+  "id": "body id",
+  "value": "content"
+}
+
+### Delete all
+# @no-log
+DELETE {{base}}/pong_v1
+
+### Delete one
+# @no-log
+DELETE {{base}}/pong_v1/bong

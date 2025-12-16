@@ -3,7 +3,9 @@ rest: true
 graphqlSchema:
   files: 'schema/*.graphql'
 jsResource:
-  files: 'resources/*.ts'
+  files:
+    - 'resources/*.ts'
+    - 'resources/.*.ts'
 http:
   cors: true
   corsAccessList:

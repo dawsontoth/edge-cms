@@ -1,3 +1,5 @@
+@templateId = 1ba937ff-b00f-408e-a80d-0f38a3ac0f27
+
 ### Describe templates
 # @no-log
 GET {{base}}/template
@@ -22,7 +24,7 @@ Content-Type: application/json
 {
   "name": "Base Layout",
   "description": "Reusable layout wrapper",
-  "content": "<html><body>{{ content }}</body></html>"
+  "content": "<html><body></body></html>"
 }
 
 ### Update template

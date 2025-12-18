@@ -1,21 +1,35 @@
-import {tables} from 'harperdb';
+import {Context, RequestTarget, ResourceInterface, tables, User} from 'harperdb/v2';
 
-export class template extends tables.template {
+interface Template {
+	id: string;
+	name: string;
+	description?: string;
+	content: string;
+	createdDate?: Date;
+	updatedAt?: Date;
+}
+
+export class template extends tables.template implements ResourceInterface<Template> {
 	static loadAsInstance = false;
 
-	allowRead(user, target) {
-		return !!user && !!user.active && user?.role?.role === 'super_user';
+	private isAdmin(user?: User) {
+		const role = user?.role;
+		return !!user?.active && (role?.role === 'admin' || role?.role === 'super_user' || role?.permission?.super_user);
 	}
 
-	allowCreate(user, newData, target) {
-		return !!user && !!user.active && user?.role?.role === 'super_user';
+	allowRead(user: User, target: RequestTarget, context: Context) {
+		return true;
 	}
 
-	allowUpdate(user, updatedData, target) {
-		return !!user && !!user.active && user?.role?.role === 'super_user';
+	allowCreate(user: User, record: Promise<Template>, context: Context) {
+		return this.isAdmin(user);
 	}
 
-	allowDelete(user, target) {
-		return !!user && !!user.active && user?.role?.role === 'super_user';
+	allowUpdate(user: User, record: Promise<Template>, context: Context) {
+		return this.isAdmin(user);
+	}
+
+	allowDelete(user: User, target: RequestTarget, context: Context) {
+		return this.isAdmin(user);
 	}
 }

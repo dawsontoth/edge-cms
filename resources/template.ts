@@ -1,4 +1,4 @@
-import {Context, RequestTarget, ResourceInterface, tables, User} from 'harperdb/v2';
+import {Context, RequestTarget, ResourceInterface, tables, User} from 'harperdb';
 
 interface Template {
 	id: string;

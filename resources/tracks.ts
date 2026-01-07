@@ -1,4 +1,4 @@
-import {Context, RequestTarget, RequestTargetOrId, tables, User} from 'harperdb/v2';
+import {Context, RequestTarget, RequestTargetOrId, tables, User} from 'harperdb';
 
 interface Track {
 	id: string;

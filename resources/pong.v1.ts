@@ -1,4 +1,4 @@
-import {Context, RecordObject, RequestTarget, RequestTargetOrId, Resource, User} from 'harperdb';
+import {Context, RecordObject, RequestTarget, RequestTargetOrId, Resource, User} from 'harperdb/v1';
 
 interface Pong {
 	side: 'left'|'right';

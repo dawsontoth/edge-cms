@@ -1,0 +1,34 @@
+@trackId = 9e380e81-7852-42e4-9ce1-74deb07fc76f
+
+### List tracks
+GET {{base}}/tracks/
+Authorization: Basic {{username}} {{password}}
+
+### Create a track
+# @no-log
+POST {{base}}/tracks/
+Authorization: Basic {{username}} {{password}}
+Content-Type: application/json
+
+{
+  "data": "Why hello there, world!"
+}
+
+### Get track by name (streaming data)
+# @no-log
+GET {{base}}/tracks/Secure%20The%20Key
+
+### Get track by id (streaming data)
+# @no-log
+GET {{base}}/tracks/{{trackId}}
+Authorization: Basic {{username}} {{password}}
+
+### Delete track by id (streaming data)
+# @no-log
+DELETE {{base}}/tracks/{{trackId}}
+Authorization: Basic {{username}} {{password}}
+
+### Delete all tracks
+# @no-log
+DELETE {{base}}/tracks/
+Authorization: Basic {{username}} {{password}}

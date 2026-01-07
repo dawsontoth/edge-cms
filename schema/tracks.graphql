@@ -1,0 +1,6 @@
+type tracks @table @sealed @export {
+	id: ID @primaryKey
+	name: String! @indexed
+	album: String
+	data: Blob
+}

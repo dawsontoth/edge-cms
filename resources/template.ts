@@ -9,7 +9,7 @@ interface Template {
 	updatedAt?: Date;
 }
 
-export class template extends tables.template implements ResourceInterface<Template> {
+export class template extends tables.template<Template> {
 	static loadAsInstance = false;
 
 	private isAdmin(user?: User) {
@@ -21,11 +21,11 @@ export class template extends tables.template implements ResourceInterface<Templ
 		return true;
 	}
 
-	allowCreate(user: User, record: Promise<Template>, context: Context) {
+	allowCreate(user: User, record: Template, context: Context) {
 		return this.isAdmin(user);
 	}
 
-	allowUpdate(user: User, record: Promise<Template>, context: Context) {
+	allowUpdate(user: User, record: Template, context: Context) {
 		return this.isAdmin(user);
 	}
 
